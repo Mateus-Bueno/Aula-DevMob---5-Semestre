@@ -1,0 +1,10 @@
+name: aula7_animated_list
+description: Exemplo de AnimatedList com Provider
+publish_to: 'none'
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.5
