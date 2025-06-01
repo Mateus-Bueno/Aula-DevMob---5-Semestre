@@ -6,6 +6,7 @@ void main() {
   runApp(const MyApp());
 }
 
+// Define os campos do modelo 'Produto'
 class Produto {
   final int id;
   final String nome;
@@ -13,6 +14,7 @@ class Produto {
   final String descricao;
   final double preco;
 
+// Age como construtor para instanciar produto
   Produto({
     required this.id,
     required this.nome,
@@ -21,6 +23,7 @@ class Produto {
     required this.preco,
   });
 
+// Utiliza um arquivo ou string em formato JSON para instanciar o produto
   factory Produto.fromJson(Map<String, dynamic> json) {
     return Produto(
       id: json['id'],
@@ -37,11 +40,13 @@ class CarrinhoModel extends ChangeNotifier {
 
   List<Produto> get itens => _itens;
 
+  // Método para adicionar produtos ao carrinho
   void adicionar(Produto produto) {
     _itens.add(produto);
     notifyListeners();
   }
 
+  // Método para finalizar a compra dos produtos no carrinho
   void finalizarCompra() {
     _itens.clear();
     notifyListeners();
@@ -162,6 +167,7 @@ const String produtosJson = '''
 }
 ''';
 
+// Inicializa a lista de produtos a partir do JSON
 final List<Produto> produtos =
     (jsonDecode(produtosJson)['produtos_halloween'] as List)
         .map((value) => Produto.fromJson(value))
